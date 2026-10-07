@@ -6,21 +6,23 @@
 # ------------------------------
 
 def main():
-    vel = input("Enter the initial velocity (m/s): ")
-    print(total_time(vel))
+    vertical_speed = float(input("Enter the initial vertical speed (ft/s): "))
+    print(time_to_peak(vertical_speed))
+    print(maximum_height(vertical_speed))
+    print(total_time(vertical_speed))
 
-def time_to_peak(velocity, gravity):
+def time_to_peak(vertical_speed, gravity=-32):
     # final velocity is 0, always
     # t = -v/g
-    return -velocity / gravity # negatives cancel out
+    return -vertical_speed / gravity  # negatives cancel out
 
-def maximum_height(velocity, gravity, initial_height = 0):
+def maximum_height(vertical_speed, gravity=-32, initial_height=0):
     # assume initial height is 0
     # y = 1/2(a)(t^2) + v*t + y0
-    t = time_to_peak(velocity, gravity)
-    return .5 * gravity * t**2 + velocity * t + initial_height
+    time = time_to_peak(vertical_speed, gravity)
+    return 0.5 * gravity * time**2 + vertical_speed * time + initial_height
     
-def total_time(vel, gravity = -9.8):
-    return(2 * time_to_peak(float(vel), gravity))
+def total_time(vertical_speed, gravity=-32):
+    return 2 * time_to_peak((vertical_speed), gravity)
 
 main()
