@@ -9,7 +9,7 @@ data = [0, 1, 2, 0.5, 10, 1000000, -4, -0.5, 24, .01]
 
 def binomial_series_sqrt(n):
     # handles n = 0
-    if n == 0:
+    if n == 0:  
         return 0
     # handles negative numbers
     if n < 0:
